@@ -2,9 +2,14 @@
     include("conexao.php");
 
     $busca = "";
+    $statusFiltro = "";
 
     if(isset($_GET['busca'])){
     $busca = $_GET['busca'];
+}
+
+    if(isset($_GET['status'])){
+    $statusFiltro = $_GET['status'];
 }
 
 $sql = "
@@ -34,6 +39,12 @@ $sql = "
     while($linha = $resultado->fetch_assoc()){
     $chamados[] = $linha;
 }
+    if($statusFiltro != ''){
+        $chamados = array_filter($chamados, function($chamado) use ($statusFiltro){
+            return strtolower($chamado['status']) === strtolower($statusFiltro);
+
+    });
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,12 +52,13 @@ $sql = "
 <head>
     <title>Lista de Chamados</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container mt-4">
     <h2>Chamados</h2>
 
-        <form method="GET">
+    <form method="GET">
 
         <input
         type="text"
@@ -54,6 +66,13 @@ $sql = "
         placeholder="Pesquisar chamado"
         class="form-control">
 <br>
+
+        <select name="status" class="form-control">
+            <option value="">Todos os status</option>
+            <option value="aberto">Aberto</option>
+            <option value="em andamento">Em andamento</option>
+            <option value="fechado">Fechado</option>
+        </select>
 
         <button class="btn btn-primary">
             Pesquisar
@@ -80,7 +99,21 @@ $sql = "
 
                 <td><?= $linha['id_titulo'] ?></td>
 
-                <td><?= $linha['descricao'] ?></td>
+                <td>
+                    <span class="desc-preview">
+                        <?= mb_strimwidth($linha['descricao'], 0, 40, "...") ?>
+                    </span>
+
+                    <input type="checkbox" id="toggle<?= $linha['id_chamado'] ?>" class="toggle-desc">
+
+                    <label for="toggle<?= $linha['id_chamado'] ?>" class="ver-mais">
+                        ...
+                    </label>
+
+                    <div class="desc-completa">
+                        <?= $linha['descricao'] ?>
+                    </div>
+                </td>
 
                 <td><?= $linha['status'] ?></td>
 

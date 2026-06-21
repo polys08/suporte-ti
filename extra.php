@@ -22,3 +22,22 @@ $conn->query($sql);//o php envia o SQL para o MySQL, como: Banco de dados, execu
 
     header("Location: index.php");//redireciona o usuario para o formulário vazio
     exit;
+
+
+
+
+
+    //ultimo:
+
+    <?php
+    $servername = "localhost 2";//ip v2//nos""colocar ip maquina virtual deixar aplicação na máquina real
+    $username = "poly";
+    $password = "123456";
+    $dbname = "bancosuporte";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if($conn->connect_error){
+        die("Falha na conexão: ". $conn->connect_error);
+    }
+    ?>

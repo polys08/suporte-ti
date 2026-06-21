@@ -1,0 +1,27 @@
+.desc-completa {
+    display: none;
+    margin-top: 5px;
+    background: #f1f1f1;
+    padding: 8px;
+    border-radius: 6px;
+    max-width: 300px;
+    white-space: normal;
+}
+
+.toggle-desc {
+    display: none;
+}
+
+.toggle-desc:checked ~ .desc-completa {
+    display: block;
+}
+
+.ver-mais {
+    cursor: pointer;
+    color: blue;
+    font-weight: bold;
+}
+
+.desc-preview {
+    display: inline;
+}
