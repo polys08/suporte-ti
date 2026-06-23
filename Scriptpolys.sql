@@ -1,4 +1,4 @@
-vuse bancosuporte;
+use bancosuporte;
 
 create table usuarios (
 	id_usuarios int auto_increment primary key,
@@ -21,7 +21,6 @@ CREATE TABLE categoria(
     id_categoria INT AUTO_INCREMENT PRIMARY KEY,
     nome_categoria VARCHAR(50) NOT NULL
 );
-
 
 USE bancosuporte;
 SHOW TABLES;
