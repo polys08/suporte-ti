@@ -41,3 +41,41 @@ $conn->query($sql);//o php envia o SQL para o MySQL, como: Banco de dados, execu
         die("Falha na conexão: ". $conn->connect_error);
     }
     ?>
+
+
+
+
+
+    //*
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Chamados</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Sistema de Chamados</h1>
+        <hr>
+
+        <a href="usuarios.php" class="btn btn-primary">
+            Cadastrar Usuário
+        </a>
+
+        <a href="chamados.php" class="btn btn-success">
+            Novo Chamado
+
+        <a href="listar_chamados.php" class="btn btn-dark">
+            Listar Chamados
+        </a>
+    </div>
+</body>
+</html>
+
+//A página chamados.php consulta todos os usuários cadastrados no 
+// banco de dados utilizando o comando SELECT * FROM usuarios. Esses usuários 
+//são exibidos dinamicamente em uma lista suspensa através de um laço while. 
+//O formulário coleta título, descrição e usuário responsável pelo chamado e 
+//envia essas informações para o arquivo salvar_chamado.php, que realiza a 
+//gravação no banco de dados.

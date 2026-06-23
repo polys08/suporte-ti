@@ -1,3 +1,10 @@
+<?php
+    $mostrarMenu = true;
+    include 'templates/header.php';
+?>
+
+<?php include 'templates/header.php'; ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,3 +38,6 @@
 </body>
 </html>
 
+
+
+<?php include __DIR__ . '/templates/footer.php'; ?>

@@ -1,4 +1,11 @@
 <?php
+    $mostrarMenu = true;
+    include 'templates/header.php';
+?>
+
+<?php include 'templates/header.php'; ?>
+
+<?php
     include("conexao.php");
 
     $busca = "";
@@ -52,7 +59,6 @@ $sql = "
 <head>
     <title>Lista de Chamados</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container mt-4">
@@ -143,3 +149,6 @@ $sql = "
     </div>
 </body>
 </html>
+
+
+<?php include __DIR__ . '/templates/footer.php'; ?>

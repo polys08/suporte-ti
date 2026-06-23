@@ -1,5 +1,9 @@
 <?php
-include("conexao.php");
+    $mostrarMenu = true;
+    include 'templates/header.php';
+?>
+
+<?php include("conexao.php");
 
 $id = $_GET['id'];
 
@@ -17,7 +21,7 @@ $chamado = $resultado->fetch_assoc();
 </head>
 <body>
 
-<div class="container mt-4">
+<div class="container editar-chamado">
 
     <h2>Editar Chamado</h2>
 
@@ -82,3 +86,5 @@ $chamado = $resultado->fetch_assoc();
 
 </body>
 </html>
+
+<?php include __DIR__ . '/templates/footer.php'; ?>
